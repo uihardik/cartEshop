@@ -14,7 +14,7 @@ class Routes extends Component {
     return (
       <Switch>
             <Route exact path='/' component={Home} />
-            <Route path='/dashboard' component={Dashboard}/>
+            <Route path='/cart' component={Dashboard}/>
       </Switch>
     );
   }

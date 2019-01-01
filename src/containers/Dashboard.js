@@ -24,15 +24,15 @@ class Dashboard extends Component {
     // set Cost of courier
   renderSwitch(weight) {
       if(weight <= 200){
-        return <span>5$</span>
+        return <span>$5</span>
       }else if(weight <= 500){
-        return <span>10$</span>
+        return <span>$10</span>
       }else if(weight <= 1000){
-        return <span>15$</span>
+        return <span>$15</span>
       }else if(weight <= 5000){
-        return <span>20$</span>
+        return <span>$20</span>
       }else{
-        return <span>22$</span>
+        return <span>$22</span>
       }
   }
 
@@ -57,7 +57,6 @@ class Dashboard extends Component {
     )):null;
 
     const listItems = this.renderItem(listArryItems)
-    console.log(listItems,'listItems',item)
     // get Array of Item weight List
     const weight = item?(item.map((itemWeight) =>{
       return itemWeight.weight;
@@ -78,20 +77,20 @@ class Dashboard extends Component {
     
     //  Split with multiple Items if total price upto 250 other wise in same packages 
     const ItemList = this.state.sum >= 251 ? (
-      item.map((value) =>
-        <Card style={{ width: 300 }} title="packages 1">
-          <p><lable>Items: </lable> <span>{value.item}</span></p>
-          <p><lable>Weight: </lable> <span>{value.weight}g</span></p>
-          <p><lable>Total Price: </lable> ${value.price}</p>
-          <p><lable>Courier Cost: </lable> {this.renderSwitch(value.weight)}</p>
+      item.map((value,index) =>
+        <Card style={{ width: 300 }} title={"packages "+(index+1)}>
+          <p><label>Items: </label> <span>{value.item}</span></p>
+          <p><label>Weight: </label> <span>{value.weight}g</span></p>
+          <p><label>Total Price: </label> ${value.price}</p>
+          <p><label>Courier Cost: </label> {this.renderSwitch(value.weight)}</p>
       </Card>
       )
     ):(
       <Card style={{ width: 300 }} title="packages 1">
-        <p><lable>Items: </lable> {listItems}</p>
-        <p><lable>Total Weight: </lable> {weightSum}g</p>
-        <p><lable>Total Price: </lable> ${PriceSum}</p>
-        <p><lable>Courier Cost: </lable> {courierCost}</p>
+        <p><label>Items: </label> {listItems}</p>
+        <p><label>Total Weight: </label> {weightSum}g</p>
+        <p><label>Total Price: </label> ${PriceSum}</p>
+        <p><label>Courier Cost: </label> {courierCost}</p>
       </Card>
     )
 

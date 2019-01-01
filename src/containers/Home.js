@@ -10,7 +10,7 @@ import reqwest from 'reqwest';
 
 const count = 3;
 //const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat&noinfo`;
-const fakeDataUrl = `http://www.mocky.io/v2/5c2502ab3000007c007a6256`;
+const fakeDataUrl = `http://www.mocky.io/v2/5c2b94223000005000abafd9`;
 
 class Home extends Component {
 
@@ -100,7 +100,7 @@ class Home extends Component {
       <article>
         <div>
           <section className='text-section'>
-             <Link to='/dashboard' className='btn btn--dash btn--nav'>Place order</Link>
+             <Link to='/cart' className='btn btn--dash btn--nav'>Place order</Link>
               <List
                 className="demo-loadmore-list"
                 loading={initLoading}
@@ -112,7 +112,7 @@ class Home extends Component {
                       <List.Item.Meta
                         avatar={<Avatar src="http://www.fourarm.com/Images/Product.png" />}
                         title={<a href="https://ant.design">{item.item}</a>}
-                        description={<span>{item.weight}</span>}
+                        description={<span>{item.weight}g</span>}
                       />
                       <div>Price: ${item.price}</div>
                   </List.Item>
